@@ -1,19 +1,23 @@
 import express from 'express'
 import connectDB from './models/ConnectDB'
+import cors from 'cors'
 
 //Routes
 import Welcome from './routes/Welcome'
 import Login from './routes/Login'
+import Logout from './routes/Logout'
 import Register from './routes/Register'
-import PrivateRouter from './routes/PrivateRouter'
+import PrivateRouterUser from './routes/PrivateRouterUser'
 
 const app: express = express()
 app.use(express.json())
+app.use(cors())
 
 app.use('/', Welcome)
 app.use('/auth/login', Login)
+app.use('/auth/logout', Logout)
 app.use('/auth/register', Register)
-app.use('/user/:id', PrivateRouter)
+app.use('/private/', PrivateRouterUser)
 
 connectDB()
 

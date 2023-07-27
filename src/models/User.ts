@@ -1,6 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import { User } from "../interfaces/types";
 
-const UserSchema = new Schema({
+//Define o esquema do usuário no Banco de Dados
+const UserSchema = new Schema<User>({
   name: {
     type: String,
     required: true
@@ -12,9 +14,12 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  role:{
+    type: String
   }
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model<User>("User", UserSchema);
 
 export default User;
