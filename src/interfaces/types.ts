@@ -7,9 +7,14 @@ interface User extends Document {
   role: 'user' | 'admin'
 }
 
+interface Photo extends Document {
+  name: string
+  src: string
+}
+
 interface AuthPayload {
   userId: string;
   role: 'user' | 'admin';
 }
 
-export {User, AuthPayload}
+export {User, Photo, AuthPayload}

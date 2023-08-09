@@ -8,6 +8,7 @@ import Login from './routes/Login'
 import Logout from './routes/Logout'
 import Register from './routes/Register'
 import PrivateRouterUser from './routes/PrivateRouterUser'
+import Photo from './routes/photo'
 
 const app: express = express()
 app.use(express.json())
@@ -18,6 +19,7 @@ app.use('/auth/login', Login)
 app.use('/auth/logout', Logout)
 app.use('/auth/register', Register)
 app.use('/private/', PrivateRouterUser)
+app.use('/photo', Photo)
 
 connectDB()
 
